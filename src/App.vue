@@ -2,7 +2,7 @@
 import contacts from "./contacts.json";
 import { ref } from "vue";
 
-// Define the data for the component, Store the displayed contacts in an array (initially 5 contacts)
+// Define the data for the component, Store the first five displayed contacts in an array
 
 export default {
   data() {
@@ -22,19 +22,19 @@ export default {
         this.displayedContacts.push(remainingContacts[randomIndex]);
       }
     },
-    //Sort the displayed contacts by name
+    //Sort the displayed contacts by their name
     sortByname() {
-      // localeCompare sorts the contacts by name
+     
       this.displayedContacts.sort((a, b) => a.name.localeCompare(b.name));
     },
-    // Method to sort the displayed contacts by popularity
+    // Now sort the displayed contacts by popularity
     sortByPopularity() {
-      // Sort the contacts by their popularity in descending order
+
       this.displayedContacts.sort((a, b) => b.popularity - a.popularity);
     },
-    // Method to delete a contact from the displayed contacts
+    // Delete a contact from the displayed contacts
     deleteContact(contact) {
-      // Used the filter method to remove the contact from the displayed contacts
+      // Used the filter method to remove the contact 
       this.displayedContacts = this.displayedContacts.filter(c => c.id !== contact.id);
     }
   }
